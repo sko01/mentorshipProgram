@@ -9,11 +9,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-@EnableWebMvc
+
 @Configuration
-@ComponentScan(basePackages="ua.epam.sko.mentorshipprogram.controller")
+@EnableWebMvc
+@ComponentScan({"ua.epam.sko.mentorshipprogram.controller", "ua.epam.sko.mentorshipprogram.controller.aop"})
 public class SpringWebConfig extends WebMvcConfigurerAdapter{
-	
+		
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -26,5 +27,5 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter{
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
-	}
+	}	
 }

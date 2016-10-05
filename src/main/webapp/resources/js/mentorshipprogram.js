@@ -50,6 +50,7 @@ function getEmployee() {
 			employeeElement += "</table>";
 			
 			document.getElementById("employeeInfo").innerHTML = employeeElement;
+			location.reload();
 		}
 	});
 };

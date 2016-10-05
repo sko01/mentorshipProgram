@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import ua.epam.sko.mentorshipprogram.utils.DateDeserializer;
 import ua.epam.sko.mentorshipprogram.utils.DateSerializer;
 
-public class Employee implements Serializable{
+public class Employee extends AbstractGlobalEntity implements Serializable{
 	
 	private int employeeId;
 	private String employeeName;

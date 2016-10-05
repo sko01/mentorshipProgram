@@ -21,20 +21,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Autowired
 	private EmployeeDao employeDao;
-
-	public void saveEmploye(String name, String secondName, String email, String birthday) {
-		Employee employe = new Employee();
-		employe.setEmployeeName(name);
-		employe.setEmployeeSecondName(secondName);
-		employe.setEmployeeEmail(email);
-		try{
-			Date employeBirthday = stringToDateConverter.stringToDateConvert(birthday);
-			employe.setEmployeeBirthday(employeBirthday);
-			employeDao.saveEmploye(employe);
-		} catch (ParseException e){
-			System.err.println(e.getMessage());
-		}
-	}
 	
 	public void saveEmploye(Employee employe) {
 		employeDao.saveEmploye(employe);		

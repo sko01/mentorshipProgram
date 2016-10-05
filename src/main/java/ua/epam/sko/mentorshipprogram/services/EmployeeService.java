@@ -9,7 +9,6 @@ import ua.epam.sko.mentorshipprogram.model.Employee;
 @Service
 public interface EmployeeService {
 	Employee getEmployeById(int id);
-	void saveEmploye(String name, String secondName, String email, String birthday);
 	void saveEmploye(Employee employe);
 	Employee updateName(Employee employe, String name);
 	Employee updateSecondName(Employee employe, String secondName);

@@ -1,23 +1,13 @@
 package ua.epam.sko.mentorshipprogram.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
-
-import ua.epam.sko.mentorshipprogram.dao.EmployeeDao;
-import ua.epam.sko.mentorshipprogram.initializer.TestDataInitializer;
-import ua.epam.sko.mentorshipprogram.services.EmployeeService;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
-@ComponentScan(basePackages="ua.epam.sko.mentorshipprogram")
+@ComponentScan(basePackages="ua.epam.sko.mentorshipprogram",
+				excludeFilters={@Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class)})
 public class SpringRootConfig {
-	@Autowired
-	private EmployeeDao employeDao;
-	
-	@Autowired
-	private EmployeeService employeService;
-	
-	@Autowired
-	private TestDataInitializer testDataInitializer;
-	
 }
