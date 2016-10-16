@@ -8,6 +8,9 @@
   <name>MentorshipProgram Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <properties>
+  	<hsqldb.version>2.3.4</hsqldb.version>
+  	<hibernate.entitymanager.version>5.1.2.Final</hibernate.entitymanager.version>
+  	<spring.data.jpa.version>1.9.6.RELEASE</spring.data.jpa.version>
   	<org.springframework.version>4.3.3.RELEASE</org.springframework.version>
   </properties>
   <dependencies>
@@ -83,11 +86,34 @@
     	<artifactId>aspectjtools</artifactId>
     	<version>1.8.9</version>
 	</dependency>
+	<!-- Bean validation -->
+	<dependency>
+    	<groupId>javax.validation</groupId>
+    	<artifactId>validation-api</artifactId>
+    	<version>1.1.0.Final</version>
+	</dependency>
 	<!-- Logging -->
 	<dependency>
 		<groupId>log4j</groupId>
 		<artifactId>log4j</artifactId>
 		<version>1.2.17</version>
+	</dependency>
+	<!-- JPA -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>${hibernate.entitymanager.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.data</groupId>
+		<artifactId>spring-data-jpa</artifactId>
+		<version>${spring.data.jpa.version}</version>
+	</dependency>
+	<!-- HSQLDB -->
+	<dependency>
+    	<groupId>org.hsqldb</groupId>
+    	<artifactId>hsqldb</artifactId>
+    	<version>${hsqldb.version}</version>
 	</dependency>
   </dependencies>
   <build>

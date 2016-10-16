@@ -14,7 +14,7 @@ import ua.epam.sko.mentorshipprogram.dao.EmployeeDao;
 import ua.epam.sko.mentorshipprogram.model.Employee;
 
 @Component
-public class EmployeeDaoStaticImpl implements EmployeeDao {
+public class EmployeeDaoStaticImpl {
 	private static Logger LOG = Logger.getLogger(EmployeeDaoStaticImpl.class);
 	
 	private static AtomicInteger employeId = new AtomicInteger();

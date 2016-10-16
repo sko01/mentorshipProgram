@@ -2,8 +2,15 @@ package ua.epam.sko.mentorshipprogram.model;
 
 import java.util.Date;
 
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@MappedSuperclass
 public abstract class AbstractGlobalEntity {
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date creationDate;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date modificationDate;
 	private String createdBy;
 	

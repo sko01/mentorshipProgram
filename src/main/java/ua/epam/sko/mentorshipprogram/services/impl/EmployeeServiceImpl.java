@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ua.epam.sko.mentorshipprogram.constants.MentorshipProgramConstants;
@@ -22,6 +23,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	private EmployeeDao employeDao;
 	
+	public EmployeeDao getEmployeDao() {
+		return employeDao;
+	}
+
+	public void setEmployeDao(EmployeeDao employeDao) {
+		this.employeDao = employeDao;
+	}
+
 	public void saveEmploye(Employee employe) {
 		employeDao.saveEmploye(employe);		
 	}
