@@ -20,7 +20,7 @@ import ua.epam.sko.mentorshipprogram.utils.DateDeserializer;
 import ua.epam.sko.mentorshipprogram.utils.DateSerializer;
 
 @Entity
-@Table(name="Employee", schema="dbo")
+@Table(name="employee")
 public class Employee extends AbstractGlobalEntity implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

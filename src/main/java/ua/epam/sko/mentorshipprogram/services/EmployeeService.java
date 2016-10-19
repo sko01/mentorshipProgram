@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import ua.epam.sko.mentorshipprogram.model.Employee;
 
-@Service
 public interface EmployeeService {
 	Employee getEmployeById(int id);
 	void saveEmploye(Employee employe);

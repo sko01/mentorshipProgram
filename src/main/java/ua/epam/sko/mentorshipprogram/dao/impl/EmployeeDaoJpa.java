@@ -6,14 +6,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Component;
 
 import ua.epam.sko.mentorshipprogram.dao.EmployeeDao;
 import ua.epam.sko.mentorshipprogram.model.Employee;
 
-@Repository
-@Transactional
+@Component(value="jpaDao")
 public class EmployeeDaoJpa implements EmployeeDao{
 	
 	@PersistenceContext
@@ -24,9 +22,10 @@ public class EmployeeDaoJpa implements EmployeeDao{
 		TypedQuery<Employee> query = em.createQuery(getEmployeeByIdQuery, Employee.class);
 		query.setParameter(1, id);
 		
+		
 		return query.getSingleResult();
 	}
-
+	
 	public Employee saveEmploye(Employee employe) {
 		em.persist(employe);
 		em.flush();
@@ -39,8 +38,9 @@ public class EmployeeDaoJpa implements EmployeeDao{
 	}
 
 	public Employee deleteEmploye(Employee employe) {
-		em.remove(employe);
-		return employe;
+		Employee employeeToBeRemoved = em.getReference(Employee.class, employe.getEmployeeId());
+		em.remove(employeeToBeRemoved);
+		return employeeToBeRemoved;
 	}
 
 	public boolean checkIfEmployeExist(Employee employe) {
@@ -52,11 +52,15 @@ public class EmployeeDaoJpa implements EmployeeDao{
 		TypedQuery<Employee> query = em.createQuery(getEmployeeByIdQuery, Employee.class);
 		query.setParameter(1, email);
 		
+		if(query.getResultList().isEmpty()){
+			return null;
+		}
+		
 		return query.getSingleResult();
 	}
 
 	public List<Employee> getEmployees() {
-		String getAllEmployees = "SELECT * FROM Employee";
+		String getAllEmployees = "SELECT e FROM Employee e";
 		TypedQuery<Employee> query = em.createQuery(getAllEmployees, Employee.class);
 		
 		return query.getResultList();

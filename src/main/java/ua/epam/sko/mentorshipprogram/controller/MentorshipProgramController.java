@@ -14,8 +14,8 @@ import ua.epam.sko.mentorshipprogram.services.EmployeeService;
 @Controller
 @RequestMapping("/")
 public class MentorshipProgramController {
-	@Autowired
-	private EmployeeService employeService;
+//	@Autowired
+//	private EmployeeService employeService;
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String employeIndex(ModelMap model){
@@ -27,28 +27,28 @@ public class MentorshipProgramController {
 		return "employee";
 	}
 		
-	@RequestMapping(value="update/{employeId}", method=RequestMethod.GET)
-	public String updateEmploye(@PathVariable String employeId, ModelMap modelMap){
-		Employee employeToUpdate = employeService.getEmployeById(Integer.parseInt(employeId));
-		if(employeToUpdate != null){
-			modelMap.addAttribute("employe", employeToUpdate);
-		}
-		return "employe";
-	}
+//	@RequestMapping(value="update/{employeId}", method=RequestMethod.GET)
+//	public String updateEmploye(@PathVariable String employeId, ModelMap modelMap){
+//		Employee employeToUpdate = employeService.getEmployeById(Integer.parseInt(employeId));
+//		if(employeToUpdate != null){
+//			modelMap.addAttribute("employe", employeToUpdate);
+//		}
+//		return "employe";
+//	}
 	
-	@RequestMapping(value="update/{employeId}/save", method=RequestMethod.POST)
-	public String saveUpdatedEmploye(@PathVariable String employeId, @RequestParam(value="name", required=true) String name,
-							 @RequestParam(value="secondName", required=true) String secondName,
-							 @RequestParam(value="email", required=true) String email,
-							 @RequestParam(value="birthday", required=true) String birthday, ModelMap modelMap) {
-		Employee employeToUpdate = employeService.getEmployeById(Integer.parseInt(employeId));
-		if(employeToUpdate != null){
-			employeService.updateName(employeToUpdate, name);
-			employeService.updateSecondName(employeToUpdate, secondName);
-			employeService.updateEmail(employeToUpdate, email);
-			employeService.updateBirthday(employeToUpdate, birthday);
-		}
-		return "redirect:/employees";
-	}
+//	@RequestMapping(value="update/{employeId}/save", method=RequestMethod.POST)
+//	public String saveUpdatedEmploye(@PathVariable String employeId, @RequestParam(value="name", required=true) String name,
+//							 @RequestParam(value="secondName", required=true) String secondName,
+//							 @RequestParam(value="email", required=true) String email,
+//							 @RequestParam(value="birthday", required=true) String birthday, ModelMap modelMap) {
+//		Employee employeToUpdate = employeService.getEmployeById(Integer.parseInt(employeId));
+//		if(employeToUpdate != null){
+//			employeService.updateName(employeToUpdate, name);
+//			employeService.updateSecondName(employeToUpdate, secondName);
+//			employeService.updateEmail(employeToUpdate, email);
+//			employeService.updateBirthday(employeToUpdate, birthday);
+//		}
+//		return "redirect:/employees";
+//	}
 	
 }

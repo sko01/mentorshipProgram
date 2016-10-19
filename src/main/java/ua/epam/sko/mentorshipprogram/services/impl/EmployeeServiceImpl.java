@@ -1,26 +1,27 @@
 package ua.epam.sko.mentorshipprogram.services.impl;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import ua.epam.sko.mentorshipprogram.constants.MentorshipProgramConstants;
 import ua.epam.sko.mentorshipprogram.dao.EmployeeDao;
 import ua.epam.sko.mentorshipprogram.model.Employee;
 import ua.epam.sko.mentorshipprogram.services.EmployeeService;
 import ua.epam.sko.mentorshipprogram.utils.StringToDateConverter;
 
 @Service
+@Transactional
 public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	private StringToDateConverter stringToDateConverter;
 	
 	@Autowired
+	@Qualifier("jpaDao")
 	private EmployeeDao employeDao;
 	
 	public EmployeeDao getEmployeDao() {

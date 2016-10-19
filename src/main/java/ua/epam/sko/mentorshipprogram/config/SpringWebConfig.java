@@ -3,7 +3,6 @@ package ua.epam.sko.mentorshipprogram.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -14,7 +13,6 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan({"ua.epam.sko.mentorshipprogram.controller", "ua.epam.sko.mentorshipprogram.controller.aop"})
-@Import(SpringDBConfig.class)
 public class SpringWebConfig extends WebMvcConfigurerAdapter{
 	
 	@Bean

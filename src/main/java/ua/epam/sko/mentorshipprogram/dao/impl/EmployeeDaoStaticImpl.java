@@ -7,15 +7,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import ua.epam.sko.mentorshipprogram.dao.EmployeeDao;
 import ua.epam.sko.mentorshipprogram.model.Employee;
 
-@Component
-public class EmployeeDaoStaticImpl {
-	private static Logger LOG = Logger.getLogger(EmployeeDaoStaticImpl.class);
+@Component(value="staticDao")
+public class EmployeeDaoStaticImpl implements EmployeeDao{
 	
 	private static AtomicInteger employeId = new AtomicInteger();
 	private static Map<Integer, Employee> employees = new HashMap<Integer, Employee>();

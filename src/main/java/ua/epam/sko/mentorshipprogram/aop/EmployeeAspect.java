@@ -3,9 +3,7 @@ package ua.epam.sko.mentorshipprogram.aop;
 import java.util.Arrays;
 import java.util.Date;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
@@ -16,9 +14,6 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ua.epam.sko.mentorshipprogram.model.Employee;
 import ua.epam.sko.mentorshipprogram.services.EmployeeService;
